@@ -74,64 +74,335 @@
         a:hover {
             text-decoration: underline;
         }
+        
+        /* Tab Navigation Styles */
+        .tab-navigation {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            border-bottom: 2px solid #eee;
+        }
+        .tab-navigation li {
+            margin-right: 10px;
+        }
+        .tab-navigation li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #666;
+            font-weight: normal;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s ease;
+        }
+        .tab-navigation li a:hover {
+            color: #4a6fa5;
+        }
+        .tab-navigation li a.active {
+            color: #4a6fa5;
+            border-bottom: 2px solid #4a6fa5;
+            font-weight: bold;
+        }
+        
+        /* Tab Content Styles */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Notes Styles */
+        .notes-container {
+            margin-bottom: 40px;
+        }
+        .dinner-notes-list {
+            margin-top: 20px;
+        }
+        .dinner-note-link {
+            display: block;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border-left: 4px solid #4a6fa5;
+            transition: all 0.2s ease;
+        }
+        .dinner-note-link:hover {
+            background-color: #f0f0f0;
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+        .dinner-date {
+            font-weight: bold;
+            color: #4a6fa5;
+        }
+        .dinner-title {
+            display: block;
+            margin-top: 5px;
+            color: #444;
+        }
+        
+        /* Notes Content */
+        .note-content {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        .note-content.active {
+            display: block;
+        }
+        .back-to-list {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background-color: #eee;
+            border-radius: 4px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .back-to-list:hover {
+            background-color: #ddd;
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 1.4rem;
+            color: #444;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        h4 {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Loading indicator */
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .loader.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>The Stanford Summer Research Project on Artificial Intelligence</h1>
+        <nav>
+            <ul class="tab-navigation">
+                <li><a href="#home" class="tab-link active" data-tab="home">Home</a></li>
+                <li><a href="#notes" class="tab-link" data-tab="notes">Dinner Notes</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="essay">
-        <blockquote>The best way to predict the future is to invent it. — Alan Kay</blockquote>
-        
-        <p>In 1956, a series of conversations was convened at Dartmouth to discuss the question of creating "artificial intelligence."</p>
-        
-        <p>A few men <a href="https://raysolomonoff.com/dartmouth/boxa/dart564props.pdf" target="_blank">proposed</a> that these conversations "proceed on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it."</p>
-        
-        <p>So, they spent the summer attempting "to find how to make machines use language, form abstractions and concepts, solve kinds of problems now reserved for humans, and improve themselves."</p>
-        
-        <p>Their motivation? "We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer."</p>
-        
-        <p>This series of conversations was called the Dartmouth Summer Research Project on Artificial Intelligence.</p>
-        
-        <p>Among its participants: Claude Shannon (inventor of information theory), John McCarthy (creator of Lisp), Marvin Minsky (founder of MIT CSAIL), and Nathaniel Rochester (chief architect of the IBM 701).</p>
-        
-        <p>Seventy years later, the question of creating artificial intelligence has all but been resolved. Over the past few years, we've witnessed the development of one of the most consequential technologies in human history. And we're now nearing a point where AI will be so developed that it can begin to develop itself.</p>
-        
-        <p>That begs a new question: <em>now what?</em></p>
-        
-        <p>The implications of AGI are vast — so vast that they're difficult for any one person to fully comprehend. Capabilities are only improving, technical trends are only accelerating. It's hard to imagine the world in ten years, nevermind five, even three.</p>
-        
-        <p>We <em>could</em> chase quick wins — another AI-powered B2B SaaS tool, another dopamine-fueled social media platform.</p>
-        
-        <p><em>Or</em>, we could take the time to reason from first principles to truly understand what is now possible and what soon will be. How can AGI change the world and how can we leverage it to change the world for the better? What tools can be built to empower humans, to expand the scope of what we as a species can accomplish?</p>
-        
-        <p>It doesn't seem like many are pursuing this approach, nor asking these questions. Yet, to us, it seems that this technology — and the future itself — holds too much potential to not. If we gain a full understanding of what is now technically possible and what inevitably will be, the answers of what to build will become obvious.</p>
-        
-        <p>AI can be steered by inertia, profit, and power — or by those who think on long time horizons, who want to create impact at world-scale, and who have the knowledge to do so.</p>
-        
-        <p>So, the question remains: now what?</p>
-        
-        <p>We believe a new series of conversations should be convened — this time at Stanford — to discuss the question not of creating but of leveraging artificial intelligence.</p>
-        
-        <p>We will proceed on the basis of conjecture that AGI is here, or very near.</p>
-        
-        <p>And we will make an attempt to do the above: reason from first principles to understand what AGI enables, how it can be applied most impactfully, and what applications are most worth pursuing.</p>
-        
-        <p>Our motivation? Echoing our forebears, "We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer."</p>
-        
-        <p>These conversations demand a remarkably ambitious and deeply thoughtful group — those who aim to empower humans with this profound technology and want to find how best to do so.</p>
-        
-        <p>To bring this group together, we'll start by hosting small weekly dinners. The cast will rotate, maximizing the diversity of perspectives.</p>
-        
-        <p>Maybe, decades from now, people will look back on these conversations at Stanford the way we now look back on those at Dartmouth.</p>
-        
-        <p>There's only one way to find out.</p>
-        
-        <p>The first dinner is this Thursday, 7pm — we hope to see you there.</p>
-        
-        <p>– Theo and Dhruv</p>
-    
+    <div id="home" class="tab-content active">
+        <div class="essay">
+            <blockquote>The best way to predict the future is to invent it. — Alan Kay</blockquote>
+            
+            <p>In 1956, a series of conversations was convened at Dartmouth to discuss the question of creating "artificial intelligence."</p>
+            
+            <p>A few men <a href="https://raysolomonoff.com/dartmouth/boxa/dart564props.pdf" target="_blank">proposed</a> that these conversations "proceed on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it."</p>
+            
+            <p>So, they spent the summer attempting "to find how to make machines use language, form abstractions and concepts, solve kinds of problems now reserved for humans, and improve themselves."</p>
+            
+            <p>Their motivation? "We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer."</p>
+            
+            <p>This series of conversations was called the Dartmouth Summer Research Project on Artificial Intelligence.</p>
+            
+            <p>Among its participants: Claude Shannon (inventor of information theory), John McCarthy (creator of Lisp), Marvin Minsky (founder of MIT CSAIL), and Nathaniel Rochester (chief architect of the IBM 701).</p>
+            
+            <p>Seventy years later, the question of creating artificial intelligence has all but been resolved. Over the past few years, we've witnessed the development of one of the most consequential technologies in human history. And we're now nearing a point where AI will be so developed that it can begin to develop itself.</p>
+            
+            <p>That begs a new question: <em>now what?</em></p>
+            
+            <p>The implications of AGI are vast — so vast that they're difficult for any one person to fully comprehend. Capabilities are only improving, technical trends are only accelerating. It's hard to imagine the world in ten years, nevermind five, even three.</p>
+            
+            <p>We <em>could</em> chase quick wins — another AI-powered B2B SaaS tool, another dopamine-fueled social media platform.</p>
+            
+            <p><em>Or</em>, we could take the time to reason from first principles to truly understand what is now possible and what soon will be. How can AGI change the world and how can we leverage it to change the world for the better? What tools can be built to empower humans, to expand the scope of what we as a species can accomplish?</p>
+            
+            <p>It doesn't seem like many are pursuing this approach, nor asking these questions. Yet, to us, it seems that this technology — and the future itself — holds too much potential to not. If we gain a full understanding of what is now technically possible and what inevitably will be, the answers of what to build will become obvious.</p>
+            
+            <p>AI can be steered by inertia, profit, and power — or by those who think on long time horizons, who want to create impact at world-scale, and who have the knowledge to do so.</p>
+            
+            <p>So, the question remains: now what?</p>
+            
+            <p>We believe a new series of conversations should be convened — this time at Stanford — to discuss the question not of creating but of leveraging artificial intelligence.</p>
+            
+            <p>We will proceed on the basis of conjecture that AGI is here, or very near.</p>
+            
+            <p>And we will make an attempt to do the above: reason from first principles to understand what AGI enables, how it can be applied most impactfully, and what applications are most worth pursuing.</p>
+            
+            <p>Our motivation? Echoing our forebears, "We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer."</p>
+            
+            <p>These conversations demand a remarkably ambitious and deeply thoughtful group — those who aim to empower humans with this profound technology and want to find how best to do so.</p>
+            
+            <p>To bring this group together, we'll start by hosting small weekly dinners. The cast will rotate, maximizing the diversity of perspectives.</p>
+            
+            <p>Maybe, decades from now, people will look back on these conversations at Stanford the way we now look back on those at Dartmouth.</p>
+            
+            <p>There's only one way to find out.</p>
+            
+            <p>The first dinner is this Thursday, 7pm — we hope to see you there.</p>
+            
+            <p>– Theo and Dhruv</p>
+        </div>
     </div>
+
+    <div id="notes" class="tab-content">
+        <div class="notes-container">
+            <h2>Dinner Discussion Notes</h2>
+            <p>Below you'll find notes from our weekly dinners, where we explore first principles thinking about AGI and its implications.</p>
+            
+            <div class="dinner-notes-list">
+                <a href="javascript:void(0);" class="dinner-note-link" data-note="week1">
+                    <span class="dinner-date">Week 1 - May 2025</span>
+                    <span class="dinner-title">First Principles AGI Discussion</span>
+                </a>
+                <!-- Add more dinner note links here as they become available -->
+            </div>
+            
+            <div class="loader">Loading...</div>
+            
+            <div id="note-display">
+                <!-- Individual notes will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 The Stanford Summer Research Project on Artificial Intelligence
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab navigation
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs
+                    tabLinks.forEach(tab => tab.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to current tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                    
+                    // Hide any open notes when changing tabs
+                    document.getElementById('note-display').innerHTML = '';
+                    
+                    // Update URL hash
+                    window.location.hash = tabId;
+                });
+            });
+            
+            // Check for hash in URL on page load
+            if(window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                const tabLink = document.querySelector(`.tab-link[data-tab="${hash}"]`);
+                if(tabLink) {
+                    tabLink.click();
+                }
+            }
+            
+            // Notes navigation
+            const noteLinks = document.querySelectorAll('.dinner-note-link');
+            const noteDisplay = document.getElementById('note-display');
+            const loader = document.querySelector('.loader');
+            
+            noteLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const noteId = this.getAttribute('data-note');
+                    loadNote(noteId);
+                });
+            });
+            
+            // Function to load notes
+            function loadNote(noteId) {
+                // Show loader
+                loader.classList.add('active');
+                
+                // Clear previous note
+                noteDisplay.innerHTML = '';
+                
+                // Fetch the note HTML file
+                fetch(`notes/${noteId}.html`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Note not found');
+                        }
+                        return response.text();
+                    })
+                    .then(html => {
+                        // Hide loader
+                        loader.classList.remove('active');
+                        
+                        // Display the note
+                        noteDisplay.innerHTML = html;
+                        
+                        // Add back button event listener
+                        const backBtn = noteDisplay.querySelector('.back-to-list');
+                        if (backBtn) {
+                            backBtn.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                noteDisplay.innerHTML = '';
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        // Hide loader
+                        loader.classList.remove('active');
+                        
+                        // Display error message
+                        noteDisplay.innerHTML = `
+                            <div class="note-content active">
+                                <a href="javascript:void(0);" class="back-to-list">← Back to list</a>
+                                <h3>Error</h3>
+                                <p>Sorry, we couldn't load the requested note. Please try again later.</p>
+                            </div>
+                        `;
+                        
+                        // Add back button event listener
+                        const backBtn = noteDisplay.querySelector('.back-to-list');
+                        if (backBtn) {
+                            backBtn.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                noteDisplay.innerHTML = '';
+                            });
+                        }
+                        
+                        console.error('Error loading note:', error);
+                    });
+            }
+        });
+    </script>
 </body>
 </html>
